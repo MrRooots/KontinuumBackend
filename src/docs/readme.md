@@ -29,26 +29,26 @@ To collect data from interface: `python -m src.manage -interface`.
 You can specify date, the `24.10.2021` will be used otherwise. 
 Also you can specify the ids OR names of students in `Enter student ids [names]`field : `id1, id2` OR `name1, name2`
 
-**P.S**: You can find database structure\fillers and all main queries in `src/docs/db_structure.sql` file.
+**P.S**: You can find database structure\fillers and all main queries in `src/docs/db_structure.sql` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/docs/db_structure.sql).
 
 ### Flexibility   
 The script is flexible for adding students\groups\lessons\params **into existing tables**.
  
-If you want to add new **group\student\lesson\etc** check `src/docs/db_structure.sql` lines `98-105`.
+If you want to add new **group\student\lesson\etc** check `src/docs/db_structure.sql` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/docs/db_structure.sql) lines `98-105`.
 
 If you want to add new **calculation parameter** you need to a new column to `ClassesData` table.
-check `src/docs/db_structure.sql` lines `93-94`. 
+check `src/docs/db_structure.sql` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/docs/db_structure.sql) lines `93-94`. 
 Suppose, that you've added column called `new_param`. 
 Now to use its values in calculations you have to:
-  1. Inside `src.config.config.Configuration` add `new_param` to `FACTORS` tuple.
-  2. Inside `src.core.models.Lesson` add `__calculate_new_param` method with return of `int` or `float`.
+  1. Inside `src.config.config.Configuration` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/config/config.py) add `new_param` to `FACTORS` tuple.
+  2. Inside `src.core.models.Lesson` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/core/models.py) add `__calculate_new_param` method with return of `int` or `float`.
   3. That's it, now the `new_param` column will participate in **all** calculations.
 
 Two main calculation methods. Their logic implementation can be found in: `src/core/data_source.py` 
-file + SQL queries from: `src/services/db_query_builder.py` file.
+[file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/core/data_source.py) + SQL queries from: `src/services/db_query_builder.py` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/services/db_query_builder.py).
   1. `get_students_by_week()` - calculate the total score for all students who had lessons this week.
   2. `get_students_by({ ids=() or names=() })` - calculate the total score only for given students for lessons this week.
-  3. Also there is a `Utils.open_as_excel()` method, that will create `src.config.config.Configuration.EXCEL_FILE_NAME`
+  3. Also there is a `Utils.open_as_excel()` method, that will create [`src.config.config.Configuration.EXCEL_FILE_NAME`](https://github.com/MrRooots/KontinuumBackend/blob/master/src/config/config.py)
      excel file and open it (opening tested on WIN with installed excel only)
  
 ## Documentation
