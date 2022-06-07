@@ -48,7 +48,7 @@ Two main calculation methods. Their logic implementation can be found in: `src/c
 [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/core/data_source.py) + SQL queries from: `src/services/db_query_builder.py` [file](https://github.com/MrRooots/KontinuumBackend/blob/master/src/services/db_query_builder.py).
   1. `get_students_by_week()` - calculate the total score for all students who had lessons this week.
   2. `get_students_by({ ids=() or names=() })` - calculate the total score only for given students for lessons this week.
-  3. Also there is a `Utils.open_as_excel()` method, that will create [`src.config.config.Configuration.EXCEL_FILE_NAME`](https://github.com/MrRooots/KontinuumBackend/blob/master/src/config/config.py)
+  3. Also there is a `Utils.open_as_excel()` [method](https://github.com/MrRooots/KontinuumBackend/blob/master/src/utils/utils.py), that will create [`src.config.config.Configuration.EXCEL_FILE_NAME`](https://github.com/MrRooots/KontinuumBackend/blob/master/src/config/config.py)
      excel file and open it (opening tested on WIN with installed excel only)
  
 ## Documentation
