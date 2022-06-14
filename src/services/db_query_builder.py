@@ -27,7 +27,8 @@ class DBQuery:
     """
 
   @staticmethod
-  def get_by(start, end, ids, names, factors) -> str:
+  def get_by(start: str, end: str, ids: tuple, names: tuple,
+             factors: tuple) -> str:
     """ Build query to select students with specific names OR ids """
     and_query = DBQuery.build_and_query(ids, names)
 

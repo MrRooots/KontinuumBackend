@@ -40,7 +40,7 @@ class Configuration:
   names = None
   ids = None
 
-  def __init__(self, arguments: list, ids: tuple = None,
+  def __init__(self, arguments: list[str], ids: tuple = None,
                names: tuple = None) -> None:
     """ Constructor. Arguments parsing and database initialization """
     try:

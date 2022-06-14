@@ -1,9 +1,12 @@
-from src.config.config import WeekDates, Configuration
+from src.config.config import Configuration
 from src.core.data_source import LocalDataSource
 
 
 class Repository:
   """ Main data repository """
+
+  config = None
+  data_source = None
 
   def __init__(self, cfg: Configuration, ds: LocalDataSource) -> None:
     """ Constructor """

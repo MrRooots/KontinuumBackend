@@ -1,7 +1,7 @@
 from src.config.config import Configuration
 from src.core.repository import Repository
-from src.utils.utils import Utils
 from src.services.interface import Interface
+from src.utils.utils import Utils
 
 
 def main(config: Configuration, repository: Repository,

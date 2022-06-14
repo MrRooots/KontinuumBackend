@@ -4,7 +4,8 @@ from src.core.data_source import LocalDataSource
 from src.core.repository import Repository
 
 
-def run_script(args: list, ids: list = None, names: list = None) -> None:
+def run_script(args: list[str], ids: list[int] = None,
+               names: list[int] = None) -> None:
   """ Run script """
   config = Configuration(args, ids=ids, names=names)
   local_data_source = LocalDataSource(config.FACTORS, config.week_dates,

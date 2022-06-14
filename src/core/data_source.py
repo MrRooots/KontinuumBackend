@@ -1,6 +1,6 @@
 from src.config.config import WeekDates
-from src.services.database import Database
 from src.core.models import Student, Lesson
+from src.services.database import Database
 
 
 class LocalDataSource:
@@ -10,13 +10,17 @@ class LocalDataSource:
   received data into json-like objects
   """
 
+  factors = None
+  database = None
+  week = None
+
   def __init__(self, factors: tuple, week: WeekDates, db: Database) -> None:
     """ Constructor """
     self.factors = factors
-    self.week = week
     self.database = db
+    self.week = week
 
-  def __convert_result(self, data: list) -> dict:
+  def __convert_result(self, data: list[tuple]) -> dict:
     """ Convert the given students list into a dict """
     students = {}
 

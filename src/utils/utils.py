@@ -1,5 +1,5 @@
-import os
 import datetime
+import os
 
 from pandas import DataFrame
 
@@ -25,14 +25,14 @@ class Utils:
     return Utils.get_week(datetime.datetime.strptime(s, INPUT_FMT))
 
   @staticmethod
-  def clear_arg(arg: str) -> list:
+  def clear_arg(arg: str) -> list[str]:
     """ Clear given argument string. Remove [] and ' '. Split by '=' sign """
     for pattern in (' ', '[', ']'):
       arg = arg.replace(pattern, '')
     return arg.split('=')
 
   @staticmethod
-  def parse_cmd_args(args: list) -> dict:
+  def parse_cmd_args(args: list[str]) -> dict[str, str or None]:
     """ Parse CMD arguments """
     if '-interface' in args:
       return {'start_date': None}
@@ -48,9 +48,8 @@ class Utils:
           names = tuple(i for i in arg[-1].split(','))
         elif '-ids' in arg:
           ids = tuple(int(i) for i in arg[-1].split(','))
-      return {
-        'start_date': start_date, 'ids': ids, 'names': names
-      }
+
+      return {'start_date': start_date, 'ids': ids, 'names': names}
 
   @staticmethod
   def open_as_excel(path: str, names: tuple, points: tuple,
@@ -60,7 +59,4 @@ class Utils:
 
     df.to_excel(path, sheet_name=' to '.join(week.values), index=False)
 
-    try:
-      os.system(f'start "excel" {path}')
-    except:
-      pass
+    os.system(f'start "excel" {path}')

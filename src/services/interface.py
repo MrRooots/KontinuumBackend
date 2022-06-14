@@ -14,14 +14,15 @@ class Interface:
   """ Interface implementation """
 
   @staticmethod
-  def get_dates(inputs: list) -> str:
+  def get_dates(inputs: list[tk.Entry]) -> str:
     """ Clear data from inputs """
     return '.'.join(
       txt.get() if len(txt.get()) >= 2 else '0' + txt.get()
       for txt in reversed(inputs))
 
   @staticmethod
-  def clicked(window, inputs: list, students: list) -> None:
+  def clicked(window: tk.Tk, inputs: list[tk.Entry],
+              students: list[tk.Entry]) -> None:
     """ Handle 'Calculate' button click. Set the dates and students params """
     global DATES, STUDENTS_IDS, STUDENTS_NAMES
     try:
@@ -48,9 +49,9 @@ class Interface:
     window.destroy()
 
   @staticmethod
-  def build_date_input(window,
+  def build_date_input(window: tk.Tk,
                        title: str, label: str,
-                       values: tuple, start_from: int = 0) -> list:
+                       values: tuple, start_from: int = 0) -> list[tk.Entry]:
     """ Build data inputs """
     inputs = []
     tk.Label(window,

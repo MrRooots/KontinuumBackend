@@ -5,6 +5,7 @@ from src.services.db_query_builder import DBQuery
 
 class Database:
   """ Database implementation """
+
   connection = None
   cursor = None
   exception = sqlite3.Error
@@ -16,13 +17,13 @@ class Database:
     print('[Database]: Connection initialized successfully!')
 
   def __del__(self) -> None:
-    """ Close connection """
+    """ Close connection to database """
     self.cursor.close()
     self.connection.close()
     print('[Database]: Connection closed')
 
-  def __make_request(self, query) -> list:
-    """ Execute given SQL query """
+  def __make_request(self, query: str) -> list:
+    """ Execute given SQL `query` """
     try:
       return self.cursor.execute(query).fetchall()
     except sqlite3.Error as error:
