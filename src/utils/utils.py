@@ -3,7 +3,7 @@ import os
 
 from pandas import DataFrame
 
-from src.config.structures import WeekDates
+from src.core.structures import WeekDates
 
 INPUT_FMT = '%Y.%m.%d'
 MAIN_FMT = '%Y-%m-%d'
@@ -25,14 +25,14 @@ class Utils:
     return Utils.get_week(datetime.datetime.strptime(s, INPUT_FMT))
 
   @staticmethod
-  def clear_arg(arg: str) -> list[str]:
+  def clear_arg(arg: str) -> list:
     """ Clear given argument string. Remove [] and ' '. Split by '=' sign """
     for pattern in (' ', '[', ']'):
       arg = arg.replace(pattern, '')
     return arg.split('=')
 
   @staticmethod
-  def parse_cmd_args(args: list[str]) -> dict[str, str or None]:
+  def parse_cmd_args(args: list) -> dict:
     """ Parse CMD arguments """
     if '-interface' in args:
       return {'start_date': None}

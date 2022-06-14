@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.config.structures import WeekDates
+from src.core.structures import WeekDates
 from src.services.database import Database
 from src.utils.utils import Utils
 
@@ -40,7 +40,7 @@ class Configuration:
   names = None
   ids = None
 
-  def __init__(self, arguments: list[str], ids: tuple = None,
+  def __init__(self, arguments: list, ids: tuple = None,
                names: tuple = None) -> None:
     """ Constructor. Arguments parsing and database initialization """
     try:

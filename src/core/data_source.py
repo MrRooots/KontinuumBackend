@@ -20,7 +20,7 @@ class LocalDataSource:
     self.database = db
     self.week = week
 
-  def __convert_result(self, data: list[tuple]) -> dict:
+  def __convert_result(self, data: list) -> dict:
     """ Convert the given students list into a dict """
     students = {}
 

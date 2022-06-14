@@ -62,7 +62,6 @@ class Lesson:
     return round(sum(self.__calculations), 3)
 
   def __str__(self) -> str:
-    """ Custom string conversion """
     return f'A: {self.activity}, H: {self.homework}, T: {self.test}'
 
 
@@ -72,7 +71,7 @@ class Student:
   name = None
   lessons = None
 
-  def __init__(self, _id: int, name: str, lessons: list[Lesson] = None) -> None:
+  def __init__(self, _id: int, name: str, lessons: list = None) -> None:
     """ Constructor """
     lessons = [] if lessons is None else lessons
     self.id = _id
@@ -80,7 +79,6 @@ class Student:
     self.lessons = lessons
 
   def __str__(self) -> str:
-    """ Custom string conversion """
     return self.name
 
   @property
